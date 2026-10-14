@@ -1,0 +1,6 @@
+/DetectorConstruction/Sample_Material S2
+/DetectorConstruction/Sample_Thickness 3.563598448
+/DetectorConstruction/update
+/gun/energy 80.000000 keV
+/analysis/setFileName hist_S2_D3p563598_E80
+/run/beamOn 1000000

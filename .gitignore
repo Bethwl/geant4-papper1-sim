@@ -1,0 +1,23 @@
+build/
+bin/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.root
+process_results.csv
+*.zip
+*.csv
+!checklist*.csv
+!macros/*.mac
+!macros/macro/*.mac
+.vscode/
+.vs/
+*.o
+*.obj
+*.exe
+Sim
+AutoMac
+New folder/
+src/New folder/
+result/

@@ -1,0 +1,8 @@
+/control/verbose 2
+/control/execute run_all_S0.mac
+/control/execute run_all_S1.mac
+/control/execute run_all_S2.mac
+/control/execute run_all_S3.mac
+/control/execute run_all_S4.mac
+/control/execute run_all_S5.mac
+/control/execute run_all_S6.mac
