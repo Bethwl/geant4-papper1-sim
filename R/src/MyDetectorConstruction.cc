@@ -1,4 +1,4 @@
-﻿// =========================================================================
+// =========================================================================
 // Header Definition
 // =========================================================================
 
@@ -160,11 +160,34 @@ void MyDetectorConstruction::DefineMaterials() {
 			kStateGas, 2.73 * kelvin, 3e-18 * pascal);
 	}
 
-	// MAX-phase composite system, mass fractions taken from:
-	//   COMPOSITION[Zxxxxx.00c] / DENSITY (g/cm3)
-	// ZAID mapping used: 6000=C, 7000=N, 13000=Al, 22000=Ti, 23000=V,
-	//                     24000=Cr, 41000=Nb, 73000=Ta
-	// NOTE: S0 above is unchanged; all others (S1-S8) use the new composition.
+	// Sample Materials: (80-x) B2O3 -10 CaO–10SiO2 - x La2O3 (where x = 10, 15, 20, 25, 30 and 35 mol%)
+	if (!G4Material::GetMaterial("B2O3", false)) {
+		G4Material* B2O3 = new G4Material("B2O3", 2.46 * g / cm3, 2);
+		B2O3->AddElement(NIST->FindOrBuildElement("B"), 2);
+		B2O3->AddElement(NIST->FindOrBuildElement("O"), 3);
+	}
+	G4Material* B2O3 = G4Material::GetMaterial("B2O3");
+
+	if (!G4Material::GetMaterial("CaO", false)) {
+		G4Material* CaO = new G4Material("CaO", 3.34 * g / cm3, 2);
+		CaO->AddElement(NIST->FindOrBuildElement("Ca"), 1);
+		CaO->AddElement(NIST->FindOrBuildElement("O"), 1);
+	}
+	G4Material* CaO = G4Material::GetMaterial("CaO");
+
+	if (!G4Material::GetMaterial("SiO2", false)) {
+		G4Material* SiO2 = new G4Material("SiO2", 2.65 * g / cm3, 2);
+		SiO2->AddElement(NIST->FindOrBuildElement("Si"), 1);
+		SiO2->AddElement(NIST->FindOrBuildElement("O"), 2);
+	}
+	G4Material* SiO2 = G4Material::GetMaterial("SiO2");
+
+	if (!G4Material::GetMaterial("La2O3", false)) {
+		G4Material* La2O3 = new G4Material("La2O3", 6.51 * g / cm3, 2);
+		La2O3->AddElement(NIST->FindOrBuildElement("La"), 2);
+		La2O3->AddElement(NIST->FindOrBuildElement("O"), 3);
+	}
+	G4Material* La2O3 = G4Material::GetMaterial("La2O3");
 
 // [1]. S1: (80-x) B2O3 -10 CaO-10SiO2 - x La2O3 with x = 10 mol%
 if (!G4Material::GetMaterial("S1", false)) {
